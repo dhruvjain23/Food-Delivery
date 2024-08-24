@@ -1,0 +1,22 @@
+.app-download{
+    margin: auto auto;
+    margin-top: 50px;
+    font-size: max(2vw, 15px);
+    text-align: center;
+    font-weight: 500;
+}
+.app-download-paltforms{
+    display: flex;
+    justify-content: center;
+    gap: max(1vw,1px);
+    margin-top: 20px;
+}
+.app-download-paltforms img{
+    width: max(15vw,110px);
+    max-width: 150px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.app-download-paltforms img:hover{
+    transform: scale(1.05);
+}
