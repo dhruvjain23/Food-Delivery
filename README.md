@@ -1,4 +1,4 @@
-# 🍅 Tomato - Full-Stack Food Restaurant Service
+# 🍅 Tomato - MERN Stack Online Food Order Application
 
 Welcome to **Tomato**, a comprehensive food restaurant service developed using the MERN stack (MongoDB, Express.js, React.js, Node.js). This application provides seamless functionality for customers to browse the menu,sort the menu based on the category, add food to the cart, place orders, and much more. It also features a separate admin portal for managing food items, processing orders, and other essential administrative tasks.
 
