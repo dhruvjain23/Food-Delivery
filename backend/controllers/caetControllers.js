@@ -4,8 +4,9 @@ import userModel from '../models/userModel.js'
 //add item to cart
 const addToCart = async(req,res)=>{
     try {
-        let userData =await userModel.findById(req.body.userId)
-        let cartData =await  userData.cartData;
+        let userData =await userModel.findById(req.body.userId);
+        console.log(userData);
+        let cartData =await userData.cartData;
         if(!cartData[req.body.itemId]){
             cartData[req.body.itemId]=1;
         }
@@ -13,7 +14,7 @@ const addToCart = async(req,res)=>{
             cartData[req.body.itemId]+=1;
         }
         await userModel.findByIdAndUpdate(req.body.userId,{cartData});
-        res.josn({success:true,message:'Added to cart successfully'})
+        res.json({success:true,message:'Added to cart successfully'})
     } catch (error) {
         console.log(error);
         res.json({success:false,message:'Error'})
@@ -24,9 +25,9 @@ const addToCart = async(req,res)=>{
 //remove from cart
 const removeFromCart = async (req,res)=>{
     try {
-        let userData =await userModel.findById(req.body.userId)
-        let cartData =await userData.cartData;
-        if(cartData[req.body.itemId])
+        let userData = await userModel.findById(req.body.userId);
+        let cartData = await userData.cartData;
+        if(cartData[req.body.itemId]>0)
         {
             cartData[req.body.itemId]-=1;
         }
@@ -43,11 +44,9 @@ const removeFromCart = async (req,res)=>{
 const getCart  = async(req,res)=>{
 
     try {
-        let userData =await userModel.findById(req.body.userId);
-        let cartData = await userData.cartData;
-        res.json({success:true,cartData}
-
-        )
+        let userData = await userModel.findById(req.body.userId);
+        let cartData = userData.cartData;
+        res.json({success:true,cartData})
     } catch (error) {
         console.log(error);
         res.json({success:false,message:"Error"});
@@ -58,3 +57,4 @@ const getCart  = async(req,res)=>{
 
 
 export {addToCart, removeFromCart, getCart}
+
